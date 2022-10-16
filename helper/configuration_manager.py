@@ -4,6 +4,7 @@ from jproperties import Properties
 from pathlib import Path
 
 
+
 class ConfigurationManager:
     def __init__(self):
         self.configs = Properties()
