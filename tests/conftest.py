@@ -5,7 +5,8 @@ from _pytest.fixtures import FixtureDef
 from helper.webdriver_manager import WebDriverManager, BrowserEnum
 from pages.related_to_start_page.start_page import StartPage
 
-browser_list = [BrowserEnum.chrome,]
+browser_list = [BrowserEnum.chrome,
+                BrowserEnum.firefox,]
 
 # For OS Windows specific
 if os.name == 'nt':
