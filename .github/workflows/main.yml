@@ -7,39 +7,7 @@ on:
   schedule:
     - cron: '00 18 * * *'
 
-jobs:
-  testing-flow:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: '3.9'
-
-      - name: Install Python dependencies
-        run: |
-          python -m pip install --upgrade pip
-
-      - name: this fails
-        run: |
-          pwd
-          pip install -r /home/runner/work/test-ci-cd/requirements.txt
-
-      - name: Installed package list
-        run: apt list --installed
-
-      - name: Remove Chrome
-        run: sudo apt purge google-chrome-stable
-
-      - name: Remove default Chromium
-        run: sudo apt purge chromium-browser
-
-      - name: Install a new Chromium
-        run: sudo apt install -y chromium-browser
-
-      - name: Install all necessary packages
-        run: pip install pytest requests webdriver-manager selenium
-
-      - name: Run the scraping script
-        run: pytest
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  
