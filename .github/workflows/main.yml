@@ -1,6 +1,11 @@
 name: testing
 
-on: [push]
+on:
+  push:
+    branches:
+      [master]
+  schedule:
+    - cron: '00 18 * * *'
 
 jobs:
   testing-flow:
@@ -19,7 +24,7 @@ jobs:
       - name: this fails
         run: |
           pwd
-          cd ..
+          cd test-ci-cd
           pwd
           README.md
           pip install -r ./requirements.txt
