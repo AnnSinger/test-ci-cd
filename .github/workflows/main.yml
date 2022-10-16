@@ -9,7 +9,7 @@ on:
 
 jobs:
   testing-flow:
-    runs-on: [ubuntu-latest]
+    runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@master
@@ -18,9 +18,6 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: '3.9'
-
-      - name: install Firefox stable
-        run: sudo apt install firefox
 
       - name: install Gecko driver
         run: |

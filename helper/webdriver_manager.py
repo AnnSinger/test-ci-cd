@@ -55,7 +55,7 @@ class WebDriverManager:
         if driver is None:
             raise TypeError("Object not constructed. It's not possible to use it further.")
 
-        driver.set_page_load_timeout(80)
+        driver.set_page_load_timeout(30)
         driver.implicitly_wait(ConfigurationManager().timeout())
         driver.maximize_window()
 
