@@ -21,8 +21,8 @@ jobs:
           pwd
           cd ..
 
-      - name: looking FOR REQUIREMENTS
-        run: find /home/runner/work/ -name requirements
+      - name: cd tests
+        run: cd tests
 
       - name: print ls 2
         run: ls -la
