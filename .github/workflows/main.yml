@@ -24,9 +24,6 @@ jobs:
       - name: this fails
         run: |
           pwd
-          cd test-ci-cd
-          pwd
-          README.md
           pip install -r /home/runner/work/test-ci-cd/test-ci-cd/requirements.txt
 
       - name: Installed package list
