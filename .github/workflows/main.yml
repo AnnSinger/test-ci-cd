@@ -22,7 +22,7 @@ jobs:
           cd ..
 
       - name: looking FOR REQUIREMENTS
-        run: find / -name requirements
+        run: find /home/runner/work/ -name requirements
 
       - name: print ls 2
         run: ls -la
