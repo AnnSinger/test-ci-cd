@@ -54,7 +54,7 @@ jobs:
           pwd
 
       - name: Install all necessary packages
-        run: jproperties selenium webdriver-manager pypom pytest pytest-xdist requests
+        run: pip install jproperties selenium webdriver-manager pypom pytest pytest-xdist requests
 
       - name: Run the testing
         run: pytest -n 2
