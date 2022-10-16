@@ -11,11 +11,5 @@ jobs:
   testing-flow:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-python@v2
-      - name: Set up Python
-        with:
-          python-version: '3.9'
-
-      - uses: actions/checkout@v2
       - name: Install Required dependencies and software, build docke image
         run: docker build . --file Dockerfile 
