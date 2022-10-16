@@ -19,7 +19,6 @@ jobs:
       - name: this fails
         run: |
           pwd
-          rm README.md
           cd ..
           pwd
           README.md
