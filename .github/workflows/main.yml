@@ -24,7 +24,7 @@ jobs:
       - name: this fails
         run: |
           pwd
-          pip install -r /home/runner/work/test-ci-cd/test-ci-cd/requirements.txt
+          pip install -r /home/runner/work/test-ci-cd/requirements.txt
 
       - name: Installed package list
         run: apt list --installed
