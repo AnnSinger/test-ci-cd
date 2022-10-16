@@ -13,7 +13,7 @@ jobs:
           python-version: '3.9'
 
       - name: print ls
-        run: ls
+        run: ls -la
 
       - name: Install Python dependencies
         run: |
@@ -22,7 +22,7 @@ jobs:
           cd ..
 
       - name: print ls 2
-        run: ls
+        run: ls -la
 
       - name: this fails
         run: pip install -r requirements.txt
