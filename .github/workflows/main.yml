@@ -1,0 +1,36 @@
+name: testing
+
+on: [push]
+
+jobs:
+  testing-flow:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+
+      - name: Install Python dependencies
+        uses: py-actions/py-dependency-install@v3
+        with:
+          path: "./requirements.txt"
+
+      - name: Installed package list
+        run: apt list --installed
+
+      - name: Remove Chrome
+        run: sudo apt purge google-chrome-stable
+
+      - name: Remove default Chromium
+        run: sudo apt purge chromium-browser
+
+      - name: Install a new Chromium
+        run: sudo apt install -y chromium-browser
+
+      - name: Install all necessary packages
+        run: pip install pytest requests webdriver-manager selenium
+
+      - name: Run the scraping script
+        run: pytest
