@@ -21,6 +21,9 @@ jobs:
           pwd
           cd ..
 
+      - name: looking FOR REQUIREMENTS
+        run: find / -name requirements
+
       - name: print ls 2
         run: ls -la
 
