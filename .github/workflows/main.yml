@@ -12,26 +12,18 @@ jobs:
         with:
           python-version: '3.9'
 
-      - name: print ls
-        run: |
-          ls -la > .txt
-          cat .txt
-
       - name: Install Python dependencies
         run: |
           python -m pip install --upgrade pip
-          pwd
-
-      - name: cd tests
-        run: cd tests
-
-      - name: print ls 2
-        run: |
-          ls -la > .txt
-          cat .txt
 
       - name: this fails
-        run: pip install -r requirements.txt
+        run: |
+          pwd
+          rm README.md
+          cd ..
+          pwd
+          README.md
+          pip install -r ./requirements.txt
 
       - name: Installed package list
         run: apt list --installed
