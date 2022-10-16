@@ -1,25 +1,36 @@
-name: Node.js CI
+name: testing
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+on: [push]
 
 jobs:
-  build:
+  testing-flow:
     runs-on: ubuntu-latest
 
-    strategy:
-      matrix:
-        node-version: [10.x, 12.x, 14.x]
-
     steps:
-    - uses: actions/checkout@v2
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
-    - run: npm run build --if-present
-    - run: npm test
-    
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.9'
+
+      - name: Install Python dependencies
+        uses: py-actions/py-dependency-install@v3
+        with:
+          path: "./requirements.txt"
+
+      - name: Installed package list
+        run: apt list --installed
+
+      - name: Remove Chrome
+        run: sudo apt purge google-chrome-stable
+
+      - name: Remove default Chromium
+        run: sudo apt purge chromium-browser
+
+      - name: Install a new Chromium
+        run: sudo apt install -y chromium-browser
+
+      - name: Install all necessary packages
+        run: pip install pytest requests webdriver-manager selenium
+
+      - name: Run the scraping script
+        run: pytest
