@@ -13,7 +13,7 @@ jobs:
 
     steps:
       - uses: actions/checkout@master
-      
+
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
@@ -29,6 +29,11 @@ jobs:
           chmod +x geckodriver && sudo mv geckodriver /usr/local/bin
           geckodriver --version
       
+      - name: Install Chrome Browser
+        run: |
+          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+          sudo dpkg -i google-chrome-stable_current_amd64.deb
+
       - name: Install Chrome driver
         run: |
           wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
